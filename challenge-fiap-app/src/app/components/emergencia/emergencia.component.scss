@@ -1,0 +1,44 @@
+.topo {
+    text-align: center;
+    padding: 1rem;
+}
+
+.texto_emergencia {
+    color: #286DBE;
+    font-weight: 600;
+}
+
+.subtexto_emergencia {
+    font-size: 14px;
+    padding: 1rem;
+}
+
+.form__perguntas {
+    padding:1rem;
+}
+
+.custom-control.custom-checkbox{padding-left: 0;}
+
+label.custom-control-label {
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+label.custom-control-label::before, label.custom-control-label::after{
+  right: 0;
+  left: auto;
+}
+
+.divider{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .btn_confirmar {
+    background: #286DBE;
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+}

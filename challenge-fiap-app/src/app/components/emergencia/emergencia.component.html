@@ -1,0 +1,38 @@
+<ion-header class="topo">
+  <div class="row justify-content-center">
+    <div class="col-2">
+      <a [routerLink]="['/']">
+        <img src="../../../assets/voltar.PNG">
+      </a>
+    </div>
+    <div class="col texto_emergencia">
+      Qual a hora de ir à emergência cardiológica?
+    </div>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <div class="subtexto_emergencia">
+      Os sintomas abaixo indicam qual é a melhor ação para se tomar em caso de emergência.
+    </div>
+    <div class="subtexto_emergencia">
+      Assinale o que está acontencendo:
+    </div>
+    <div class="form__perguntas">
+      <form [formGroup]="form" (ngSubmit)="submitForm()" novalidate>
+
+        <div *ngFor="let data of Data$ | async; let i=index" class="custom-control custom-checkbox mb-3">
+          <input type="checkbox" class="custom-control-input" id="customCheck+{{i}}" name="example1+{{i}}" [value]="data.pontuacao_pergunta"
+            (change)="onCheckboxChange($event)">
+          <label style="width: 97%" class="custom-control-label" for="customCheck+{{i}}">{{data.pergunta}} </label>
+          <div class="divider"></div>
+        </div>
+
+        <button class="btn btn_confirmar" type="submit" value="Submit" [disabled]="this.form.controls['checkArray'].errors?.required">
+          Confirmar
+        </button>
+      </form>
+    </div>
+  </div>
+</ion-content>

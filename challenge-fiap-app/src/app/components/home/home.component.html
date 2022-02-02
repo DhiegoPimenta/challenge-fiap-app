@@ -1,0 +1,38 @@
+<ion-header>
+  <img src="../../assets/logo.png">
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card class="card_style">
+    <ion-card-content>
+      <div class="row">
+        <div class="col espaco_col" [routerLink]="['/emergencia']">
+          <img class="tamanho__icone" src="../../../assets/relogio.png">
+          <div class="texto__card">
+            É hora de ir até a emergência?
+          </div>
+        </div>
+        <div class="col espaco_col">
+          <img class="tamanho__icone" src="../../../assets/prancheta.png">
+          <div class="texto__card">
+            Check-in Digital
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col espaco_col">
+          <img class="tamanho__icone" src="../../../assets/localizacao.png">
+          <div class="texto__card">
+            Encontrar o HMV
+          </div>
+        </div>
+        <div class="col espaco_col">
+          <img class="tamanho__icone" src="../../../assets/calendario.png">
+          <div class="texto__card">
+            Marcar consulta
+          </div>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
