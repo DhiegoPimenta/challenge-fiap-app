@@ -1,3 +1,53 @@
+<ion-header>
+  <div class="encaminhamento_titulo">
+    Encaminhamento
+  </div>
+</ion-header>
 <ion-content [fullscreen]="true">
-  ola
+  <div class="container texto_encaminhamento">
+    <div>
+      Em conformidade com suas respostas ao questionário, recomendamos que
+    </div>
+    <div *ngIf="emergencia?.emergencia != 0;else emergenciazero">
+      <div class="emergencia_retorno">agende uma consulta em uma unidade</div>
+      <div>
+        do Hospital Moinhos de Vento, clicando no botão do meu principal.
+      </div>
+      <div class="espaco_texto">
+        Os sintomas apresentados não apontam para um quadro emergencial.
+      </div>
+      <div class="espaco_texto">
+        Se houver mudanças repentinas, novos sintomas ou dor de alta intensidade, sugerimos que preencha novamente o questionário
+        anterior.
+      </div>
+      <div class="espaco_texto">
+        Caso decida dirigir-se à emergência, sugerimos que efetue o check-in digital.
+      </div>
+    </div>
+    <ng-template #emergenciazero>
+      <div class="emergencia_retorno">
+        se dirija, hoje, à emergência cardiológica
+      </div>
+      <div>
+        do Hospital Moinhos de Vento.
+      </div>
+      <div class="espaco_texto">
+        Antes de chegar, sugerimos que efetue o check-in digital e preencha o questinário médico na sequência.
+      </div>
+      <div class="espaco_texto">
+        São apenas 2 minutos
+      </div>
+      <div class="espaco_texto">
+        Com as informações aqui fornecidas, o seu atendimento será mais ágil e confortável.
+      </div>
+      <div class="espaco_texto">
+        Ao final do check-in indicaremos se o deslocamento é imediato ou se pode ser realizado dentro de algumas horas.
+      </div>
+    </ng-template>
+  </div>
+  <div class="cont_button">
+    <button [routerLink]="'/'" class="btn container btn_confirmar espaco_texto">
+      Voltar ao Menu Principal
+    </button>
+  </div>
 </ion-content>

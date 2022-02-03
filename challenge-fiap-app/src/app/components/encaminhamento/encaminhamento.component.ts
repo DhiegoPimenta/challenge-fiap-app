@@ -13,13 +13,14 @@ export class EncaminhamentoComponent implements OnInit {
 
   state$: Observable<object>;
   total;
-
+  emergencia;
   constructor(private router: Router, private httpCliente: HttpClient) { }
 
   ngOnInit() {
     this.total = this.router.getCurrentNavigation().extras.state.soma;
     this.httpCliente.get('http://localhost:8080/api/emergencia/verificar/emergencia/' + this.total).subscribe(emergencia => {
-      console.log(emergencia);
+      this.emergencia = emergencia;
     });
   }
+
 }

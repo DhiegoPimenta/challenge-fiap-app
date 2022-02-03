@@ -16,9 +16,11 @@ export class IonLoaderService {
     }
 
     dismissLoader() {
-        this.loadingController.dismiss().then((response) => {
-        }).catch((err) => {
-        });
+        setTimeout(() => {
+            this.loadingController.dismiss().then((response) => {
+            }).catch((err) => {
+            });
+        }, 1000);
     }
 
     autoLoader() {
