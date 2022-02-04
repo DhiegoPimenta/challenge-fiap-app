@@ -26,7 +26,7 @@ export class DadosPacienteComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       nome: ['', Validators.required],
-      cpf: ['', [Validators.required, Validators.minLength(13)]],
+      cpf: ['', [Validators.required, Validators.minLength(14)]],
       ultimo_nome: ['', Validators.required],
       data_nascimento: ['', Validators.required],
       nome_mae: ['', Validators.required],
@@ -43,7 +43,7 @@ export class DadosPacienteComponent implements OnInit {
         this.form.get('ultimo_nome').setValidators(null);
         this.form.get('data_nascimento').setValidators(null);
         this.form.get('nome_mae').setValidators(null);
-        this.form.get('cpf').setValidators([Validators.required, Validators.minLength(13)]);
+        this.form.get('cpf').setValidators([Validators.required, Validators.minLength(14)]);
       }
     });
 
