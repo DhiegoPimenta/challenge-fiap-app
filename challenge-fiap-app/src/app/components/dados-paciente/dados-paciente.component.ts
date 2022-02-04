@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder, FormArray, FormControl } from '@angular/forms';
 import { distinctUntilChanged } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog } from '@angular/material/dialog';
+import { EmergenciaComponent } from '../emergencia/emergencia.component';
+import { ModalDadosRegistradosComponent } from './modal-dados-registrados/modal-dados-registrados.component';
 
 @Component({
   selector: 'app-dados-paciente',
@@ -21,7 +24,7 @@ export class DadosPacienteComponent implements OnInit {
     pergunta: "Necessito de atendimento especial para pessoa com deficiência visual"
   }];
 
-  constructor(private fb: FormBuilder, private httpCliente: HttpClient) { }
+  constructor(private fb: FormBuilder, private httpCliente: HttpClient, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -105,11 +108,19 @@ export class DadosPacienteComponent implements OnInit {
         data.existePaciente = true;
         data.check = check;
         localStorage.setItem('paciente', JSON.stringify(data));
+        const dialogRef = this.dialog.open(ModalDadosRegistradosComponent, {
+          width: '90%',
+          height: '50%'
+        });
       }, err => {
         data = valores;
         data.existePaciente = false;
         data.check = check;
         localStorage.setItem('paciente', JSON.stringify(data));
+        const dialogRef = this.dialog.open(ModalDadosRegistradosComponent, {
+          width: '90%',
+          height: '50%'
+        });
       });
     } else {
       this.httpCliente.post('http://localhost:8080/api/paciente/buscarPorOutrosDados', valores).subscribe(val => {
@@ -117,11 +128,19 @@ export class DadosPacienteComponent implements OnInit {
         data.existePaciente = true;
         data.check = check;
         localStorage.setItem('paciente', JSON.stringify(data));
+        const dialogRef = this.dialog.open(ModalDadosRegistradosComponent, {
+          width: '90%',
+          height: '50%'
+        });
       }, err => {
         data = valores;
         data.existePaciente = false;
         data.check = check;
         localStorage.setItem('paciente', JSON.stringify(data));
+        const dialogRef = this.dialog.open(ModalDadosRegistradosComponent, {
+          width: '90%',
+          height: '50%'
+        });
       });
     }
   }

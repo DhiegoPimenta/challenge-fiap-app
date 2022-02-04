@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true">
+  <div class="modal__centro">
+    <div class="titulo_dados">
+      Dados Registrados!
+    </div>
+    <div>
+      Responda ao questionário médico digital para avaliar a necessidade de atendimento emergencial e reduzir o tempo de espera
+      no Hospital.
+    </div>
+    <div class="space">
+      Nosso questionário foi otimizado para aumentar a agilidade no direcionamento do paciente. Preencha-o agora.
+    </div>
+    <div>
+      <div class="btneditar">
+        <button class="btn btn_confirmar" [routerLink]="['/questionario-medico']" (click)=fechar()>Questionário Médico Emergencial</button>
+      </div>
+    </div>
+  </div>
+</ion-content>

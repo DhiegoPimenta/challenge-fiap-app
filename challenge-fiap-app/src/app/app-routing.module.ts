@@ -4,6 +4,7 @@ import { HomeComponent } from './components/home/home.component';
 import { EmergenciaComponent } from './components/emergencia/emergencia.component';
 import { EncaminhamentoComponent } from './components/encaminhamento/encaminhamento.component';
 import { DadosPacienteComponent } from './components/dados-paciente/dados-paciente.component';
+import { QuestionarioMedicoComponent } from './components/questionario-medico/questionario-medico.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'dados-paciente',
     component: DadosPacienteComponent
+  },
+  {
+    path: 'questionario-medico',
+    component: QuestionarioMedicoComponent
   },
   {
     path: '',

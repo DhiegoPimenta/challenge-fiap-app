@@ -15,7 +15,11 @@ import { JwtInterceptor } from './shared/interceptor/interceptor';
 import { CommonModule } from '@angular/common';
 import { EncaminhamentoComponent } from './components/encaminhamento/encaminhamento.component';
 import { DadosPacienteComponent } from './components/dados-paciente/dados-paciente.component';
-import { NgxMaskModule, IConfig } from 'ngx-mask'
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalDadosRegistradosComponent } from './components/dados-paciente/modal-dados-registrados/modal-dados-registrados.component';
+import { QuestionarioMedicoComponent } from './components/questionario-medico/questionario-medico.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -25,7 +29,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     HomeComponent,
     EmergenciaComponent,
     EncaminhamentoComponent,
-    DadosPacienteComponent
+    DadosPacienteComponent,
+    ModalDadosRegistradosComponent,
+    QuestionarioMedicoComponent
   ],
   entryComponents: [],
   imports: [
@@ -36,7 +42,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     FormsModule,
     HttpClientModule,
     CommonModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
