@@ -1,0 +1,70 @@
+<ion-header class="topo">
+  <div class="row justify-content-center">
+    <div class="col-2">
+      <a [routerLink]="['/']">
+        <img src="../../../assets/voltar.PNG">
+      </a>
+    </div>
+    <div class="col texto_emergencia">
+      Dados do Paciente
+    </div>
+  </div>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="container">
+    <form [formGroup]="form">
+      <div class="row">
+        <div class="col">
+          <div class="dados">
+            Insira o CPF do paciente para prosseguir:
+          </div>
+          <div class="info">
+            <input type="text" class="form-control" formControlName="cpf" name="cpf" placeholder="CPF (xxx.xxx.xxx-xx)" [dropSpecialCharacters]="false" mask="000.000.000-00"/>
+          </div>
+          <div class="dados">
+            Não tem o CPF em mãos? Complete os campos abaixo.
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="info">
+                <input type="text" class="form-control" formControlName="nome" name="nome" placeholder="Primeiro nome" />
+              </div>
+            </div>
+            <div class="col">
+              <div class="info">
+                <input type="text" class="form-control" formControlName="ultimo_nome" name="ultimo_nome" placeholder="Último nome" />
+              </div>
+              <div class="space"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="info">
+                <input type="text" class="form-control" formControlName="data_nascimento" name="data_nascimento" placeholder="Data de nascimento" [dropSpecialCharacters]="false" mask="00/00/0000"/>
+              </div>
+            </div>
+            <div class="col">
+              <div class="info">
+                <input type="text" class="form-control" formControlName="nome_mae" name="nome_mae" placeholder="Nome da mãe" />
+              </div>
+              <div class="space"></div>
+            </div>
+          </div>
+          <div *ngFor="let data of Data$; let i=index" class="custom-control custom-checkbox mb-3">
+            <input type="checkbox" class="custom-control-input" id="customCheck+{{i}}" name="example1+{{i}}" [value]="data.pergunta"
+              (change)="onCheckboxChange($event)">
+            <label style="width: 97%" class="custom-control-label" for="customCheck+{{i}}">{{data.pergunta}} </label>
+          </div>
+          <div class="spacer"></div>
+          <div class="">
+            <div class="btneditar">
+              <button [disabled]="form.invalid" (click)="verificarPaciente()" class="btn btn_confirmar">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</ion-content>

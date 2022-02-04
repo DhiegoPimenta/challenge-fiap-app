@@ -14,14 +14,35 @@ import { IonLoaderService } from './shared/loader/loader.service';
 import { JwtInterceptor } from './shared/interceptor/interceptor';
 import { CommonModule } from '@angular/common';
 import { EncaminhamentoComponent } from './components/encaminhamento/encaminhamento.component';
+import { DadosPacienteComponent } from './components/dados-paciente/dados-paciente.component';
+import { NgxMaskModule, IConfig } from 'ngx-mask'
+
+export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, EmergenciaComponent, EncaminhamentoComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    EmergenciaComponent,
+    EncaminhamentoComponent,
+    DadosPacienteComponent
+  ],
   entryComponents: [],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule,
-    FormsModule, HttpClientModule, CommonModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, IonLoaderService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule,
+    CommonModule,
+    NgxMaskModule.forRoot()
+  ],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    IonLoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
