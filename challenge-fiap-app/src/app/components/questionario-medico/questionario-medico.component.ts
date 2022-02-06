@@ -7,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionarioMedicoComponent implements OnInit {
 
-  constructor() { }
+  collection = [];
 
-  ngOnInit() {}
+  constructor() {
+    for (let i = 1; i <= 5; i++) {
+      this.collection.push(`item ${i}`);
+    }
+  }
+
+  ngOnInit() { }
 
 }

@@ -1,5 +1,7 @@
 {
   "name": "challenge-fiap-app",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
