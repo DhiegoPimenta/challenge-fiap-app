@@ -12,13 +12,26 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-no-border">
-  <div>
-    <div *ngFor="let item of collection | paginate: { itemsPerPage: 1, currentPage: p}; let i = index">
-      {{item}}
+  <div class="container">
+    <div *ngFor="let item of perguntas | paginate: { itemsPerPage: 1, currentPage: p}; let j = index">
+      <div class="pergunta">{{item.anamnese_pergunta}}</div>
+      <form [formGroup]="form">
+        <div *ngIf="p != 2;else segunda_questao">
+          <div *ngFor="let respostas of item.anamnese_respostas; let i=index" class="custom-control custom-checkbox mb-3">
+            <input type="checkbox" class="custom-control-input" id="customCheck+{{i}}" name="example1+{{i}}" [value]="respostas.pontuacao_anamnese_respostas"
+              (change)="onCheckboxChange($event)">
+            <label style="width: 97%" class="custom-control-label" for="customCheck+{{i}}">{{respostas.anamnese_resposta}} </label>
+            <div class="divider"></div>
+          </div>
+        </div>
+        <ng-template #segunda_questao>
+          <mat-slider (input)="pitch($event)" [value]="5"  thumbLabel min="1" max="10" step="1"></mat-slider>
+        </ng-template>
+      </form>
     </div>
   </div>
 </ion-content>
 <ion-footer class="ion-no-border">
-    <pagination-controls responsive="true" maxSize="2" autoHide="true" previousLabel="Página anterior" nextLabel="Próxima página"
-    (pageChange)="p = $event"></pagination-controls>
+  <pagination-controls responsive="true" maxSize="2" autoHide="true" previousLabel="Página anterior" nextLabel="Próxima página"
+    (pageChange)="p = $event; pageChanged($event)"></pagination-controls>
 </ion-footer>

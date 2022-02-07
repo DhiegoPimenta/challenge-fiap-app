@@ -21,6 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { ModalDadosRegistradosComponent } from './components/dados-paciente/modal-dados-registrados/modal-dados-registrados.component';
 import { QuestionarioMedicoComponent } from './components/questionario-medico/questionario-medico.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatSliderModule } from '@angular/material/slider';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -46,7 +47,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     NgxMaskModule.forRoot(),
     MatDialogModule,
     BrowserAnimationsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatSliderModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

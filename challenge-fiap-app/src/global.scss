@@ -59,3 +59,24 @@
     color: #286DBE;
     font-weight: 800;
 }
+
+.mat-slider-horizontal {
+    min-width: 100% !important;
+}
+
+.mat-slider-thumb {
+	background-color: #286DBE !important;
+}
+
+.mat-slider-thumb-label {
+	background-color: #286DBE !important;
+}
+
+.mat-slider-track-fill {
+	background-color: #286DBE !important;
+}
+
+.mat-slider.mat-accent .mat-slider-thumb-label-text {
+    color: white !important;
+    font-size: 15px;
+}
