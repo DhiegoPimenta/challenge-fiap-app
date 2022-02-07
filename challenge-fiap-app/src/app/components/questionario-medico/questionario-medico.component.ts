@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { map } from 'rxjs/operators';
 
 
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
   templateUrl: './questionario-medico.component.html',
   styleUrls: ['./questionario-medico.component.scss'],
 })
-export class QuestionarioMedicoComponent implements OnInit {
+export class QuestionarioMedicoComponent implements OnInit,OnDestroy {
 
   perguntas;
   Data$: Observable<any> | undefined;
@@ -22,7 +22,7 @@ export class QuestionarioMedicoComponent implements OnInit {
     private fb: FormBuilder, public router: Router) {
     this.form = this.fb.group({
       checkArray1: this.fb.array([], [Validators.required]),
-      checkArray2: ['', [Validators.required]],
+      checkArray2: this.fb.array(['0'], [Validators.required]),
       checkArray3: this.fb.array([], [Validators.required]),
       checkArray4: this.fb.array([], [Validators.required])
     });
@@ -33,10 +33,25 @@ export class QuestionarioMedicoComponent implements OnInit {
       this.perguntas = x;
       this.perguntas.push({});
     });
+    this.router.events.subscribe((val) => {
+      let rou = val instanceof NavigationEnd;
+      if(rou == true){
+        this.p = 1;
+        this.form.reset();
+      }
+  });
   }
   pageChanged(event) {
     if (event == 5) {
-      console.log(this.form.getRawValue())
+      let valores = this.form.getRawValue();
+      let combinedArray = [];
+      combinedArray.push(...valores.checkArray1);
+      combinedArray.push(...valores.checkArray2);
+      combinedArray.push(...valores.checkArray3);
+      combinedArray.push(...valores.checkArray4);
+      let total = combinedArray.map(i => Number(i));
+      const sum = total.reduce((partialSum, a) => partialSum + a, 0);
+      console.log(sum);
     }
   }
 
@@ -57,6 +72,11 @@ export class QuestionarioMedicoComponent implements OnInit {
   }
 
   pitch(event: any) {
-    this.form.get('checkArray2').setValue(event.value);
+    this.form.get("checkArray2").setValue([event.value.toString()]);
+  }
+
+  ngOnDestroy(): void {
+    this.p = 1;
+    this.form.reset();
   }
 }
