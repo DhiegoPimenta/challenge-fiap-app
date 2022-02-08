@@ -18,9 +18,9 @@
       <form [formGroup]="form">
         <div *ngIf="p != 2;else segunda_questao">
           <div *ngFor="let respostas of item.anamnese_respostas; let i=index" class="custom-control custom-checkbox mb-3">
-            <input type="checkbox" class="custom-control-input" id="customCheck+{{i}}" name="example1+{{i}}" [value]="respostas.pontuacao_anamnese_respostas"
+            <input type="checkbox" class="custom-control-input" id="customCheck{{i}}" name="example1{{i}}" [value]="respostas.pontuacao_anamnese_respostas"
               (change)="onCheckboxChange($event)">
-            <label style="width: 97%" class="custom-control-label" for="customCheck+{{i}}">{{respostas.anamnese_resposta}} </label>
+            <label style="width: 97%" class="custom-control-label" for="customCheck{{i}}">{{respostas.anamnese_resposta}} </label>
             <div class="divider"></div>
           </div>
         </div>

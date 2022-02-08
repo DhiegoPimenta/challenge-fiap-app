@@ -56,7 +56,7 @@ export class QuestionarioMedicoComponent implements OnInit, OnDestroy {
       combinedArray.push(...valores.checkArray4);
       let total = combinedArray.map(i => Number(i));
       const sum = total.reduce((partialSum, a) => partialSum + a, 0);
-      this.router.navigateByUrl('/encaminhamento-medico', { state: { soma: sum } });
+      this.router.navigate(['/encaminhamento-medico'], { state: { soma: sum } });
     }
   }
 

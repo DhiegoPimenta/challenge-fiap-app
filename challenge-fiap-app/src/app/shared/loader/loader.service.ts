@@ -19,6 +19,7 @@ export class IonLoaderService {
         setTimeout(() => {
             this.loadingController.dismiss().then((response) => {
             }).catch((err) => {
+                console.log(err);
             });
         }, 3000);
     }
