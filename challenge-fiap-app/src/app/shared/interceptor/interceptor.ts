@@ -11,10 +11,10 @@ export class JwtInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    this.ionLoaderService.simpleLoader();
+     this.ionLoaderService.simpleLoader();
 
     return next.handle(request).pipe(
-      finalize(() => this.ionLoaderService.dismissLoader())
+       finalize(() => this.ionLoaderService.dismissLoader())
     );
   }
 }

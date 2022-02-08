@@ -11,12 +11,17 @@ import { map } from 'rxjs/operators';
   templateUrl: './questionario-medico.component.html',
   styleUrls: ['./questionario-medico.component.scss'],
 })
-export class QuestionarioMedicoComponent implements OnInit,OnDestroy {
+export class QuestionarioMedicoComponent implements OnInit, OnDestroy {
 
   perguntas;
   Data$: Observable<any> | undefined;
   form: FormGroup;
   p: number = 1;
+  lat;
+  lng;
+
+  public origin: any;
+  public destination: any;
 
   constructor(private httpCliente: HttpClient,
     private fb: FormBuilder, public router: Router) {
@@ -35,11 +40,11 @@ export class QuestionarioMedicoComponent implements OnInit,OnDestroy {
     });
     this.router.events.subscribe((val) => {
       let rou = val instanceof NavigationEnd;
-      if(rou == true){
+      if (rou == true) {
         this.p = 1;
         this.form.reset();
       }
-  });
+    });
   }
   pageChanged(event) {
     if (event == 5) {
@@ -51,7 +56,7 @@ export class QuestionarioMedicoComponent implements OnInit,OnDestroy {
       combinedArray.push(...valores.checkArray4);
       let total = combinedArray.map(i => Number(i));
       const sum = total.reduce((partialSum, a) => partialSum + a, 0);
-      console.log(sum);
+      this.router.navigateByUrl('/encaminhamento-medico', { state: { soma: sum } });
     }
   }
 

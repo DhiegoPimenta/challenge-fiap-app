@@ -20,7 +20,7 @@ export class IonLoaderService {
             this.loadingController.dismiss().then((response) => {
             }).catch((err) => {
             });
-        }, 1000);
+        }, 3000);
     }
 
     autoLoader() {

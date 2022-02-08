@@ -22,6 +22,10 @@ import { ModalDadosRegistradosComponent } from './components/dados-paciente/moda
 import { QuestionarioMedicoComponent } from './components/questionario-medico/questionario-medico.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatSliderModule } from '@angular/material/slider';
+import { AgmCoreModule } from '@agm/core';
+import { AgmDirectionModule } from 'agm-direction';
+import { EncaminhamentoMedicoComponent } from './components/questionario-medico/encaminhamento-medico/encaminhamento-medico.component';
+import { MapaEncaminhamentoComponent } from './components/mapa-encaminhamento/mapa-encaminhamento.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -33,7 +37,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     EncaminhamentoComponent,
     DadosPacienteComponent,
     ModalDadosRegistradosComponent,
-    QuestionarioMedicoComponent
+    QuestionarioMedicoComponent,
+    EncaminhamentoMedicoComponent,
+    MapaEncaminhamentoComponent
   ],
   entryComponents: [],
   imports: [
@@ -48,7 +54,11 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     MatDialogModule,
     BrowserAnimationsModule,
     NgxPaginationModule,
-    MatSliderModule
+    MatSliderModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyA0j0dHYoULF4rfmzLbZQmREiXUkLc3Tts',
+    }),
+    AgmDirectionModule,
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

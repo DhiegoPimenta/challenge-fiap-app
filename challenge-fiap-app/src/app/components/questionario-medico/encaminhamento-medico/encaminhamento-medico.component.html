@@ -1,0 +1,30 @@
+<ion-content [fullscreen]="true" class="ion-no-border">
+  <div class="container center">
+    <div class="titul">Encaminhamento</div>
+    <div class="text_prin">
+      Em conformidade com suas respostas ao questionário, recomendamos que se dirija à emergência cardiológica do Hospital Moinho
+      de Ventos.
+    </div>
+    <div class="confirme">
+      Confirme seus dados abaixo e efetue o check-in digital. Estaremos aguardando.
+    </div>
+    <div class="dados_cont">
+      <div class="dados_paciente">Dados do paciente</div>
+      <div class="desc_paciente">
+        <span class="info">Nome:</span> {{paciente.nome}}
+      </div>
+      <div class="desc_paciente">
+        <span class="info">Nome da mãe:</span> {{paciente.nome_mae}}
+      </div>
+      <div class="desc_paciente">
+        <span class="info">Data de nascimento:</span> {{paciente.data_nascimento}}
+      </div>
+      <div class="desc_paciente">
+        <span class="info">Convênio:</span> Bradesco Top Nacional
+      </div>
+    </div>
+    <button [routerLink]="'/mapa-encaminhamento'" class="btn container btn_confirmar espaco_texto">
+      Finalizar check-in digital
+    </button>
+  </div>
+</ion-content>

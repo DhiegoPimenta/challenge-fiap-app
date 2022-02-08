@@ -5,6 +5,8 @@ import { EmergenciaComponent } from './components/emergencia/emergencia.componen
 import { EncaminhamentoComponent } from './components/encaminhamento/encaminhamento.component';
 import { DadosPacienteComponent } from './components/dados-paciente/dados-paciente.component';
 import { QuestionarioMedicoComponent } from './components/questionario-medico/questionario-medico.component';
+import { EncaminhamentoMedicoComponent } from './components/questionario-medico/encaminhamento-medico/encaminhamento-medico.component';
+import { MapaEncaminhamentoComponent } from './components/mapa-encaminhamento/mapa-encaminhamento.component';
 
 const routes: Routes = [
   {
@@ -26,6 +28,14 @@ const routes: Routes = [
   {
     path: 'questionario-medico',
     component: QuestionarioMedicoComponent
+  },
+  {
+    path: 'encaminhamento-medico',
+    component: EncaminhamentoMedicoComponent
+  },
+  {
+    path: 'mapa-encaminhamento',
+    component: MapaEncaminhamentoComponent
   },
   {
     path: '',

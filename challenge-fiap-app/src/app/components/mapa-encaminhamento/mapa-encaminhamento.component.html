@@ -1,0 +1,30 @@
+<ion-header class="topo">
+  <div class="row" style="padding: 1rem;">
+    <div class="col-2">
+      <a [routerLink]="['/']">
+        <img src="../../../assets/voltar.PNG">
+      </a>
+    </div>
+    <div class="col" style="font-weight: 600;margin: 0.33rem -1.6rem;color:#286DBE">
+        Voltar
+      </div>
+  </div>
+</ion-header>
+
+<ion-content>
+  <div class="container map">
+    <div class="frase-mapa">
+      Recomendamos que se dirija à emergência cardiológica do Hospital Moinho de Ventos.
+    </div>
+    <div class="frase-mapa">
+      Calma! Não há necessidade de encaminhamento imediato, pois seus sintomas são leves.
+    </div>
+    <div class="frase-mapa"> 
+      Compartilhe a sua localização e saiba a melhor rota para seu conforto.
+    </div>
+  </div>
+  <agm-map [latitude]="lat" [longitude]="lng">
+    <agm-direction [origin]="origin" [destination]="destination">
+    </agm-direction>
+  </agm-map>
+</ion-content>
