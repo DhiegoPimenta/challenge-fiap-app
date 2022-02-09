@@ -19,6 +19,7 @@ export class QuestionarioMedicoComponent implements OnInit, OnDestroy {
   p: number = 1;
   lat;
   lng;
+  respondidas = [];
 
   public origin: any;
   public destination: any;
@@ -56,19 +57,22 @@ export class QuestionarioMedicoComponent implements OnInit, OnDestroy {
       combinedArray.push(...valores.checkArray4);
       let total = combinedArray.map(i => Number(i));
       const sum = total.reduce((partialSum, a) => partialSum + a, 0);
-      this.router.navigate(['/encaminhamento-medico'], { state: { soma: sum } });
+      this.respondidas.push('dor intensidade: ' + valores.checkArray2 );
+      this.router.navigate(['/encaminhamento-medico'], { state: { soma: sum, anamnese_respondidas: this.respondidas } });
     }
   }
 
-  onCheckboxChange(e) {
+  onCheckboxChange(e, i) {
     const checkArray: FormArray = this.form.get('checkArray' + this.p) as FormArray;
     if (e.target.checked) {
       checkArray.push(new FormControl(e.target.value));
+      this.respondidas.push(e.path[0].labels[0].innerText)
     } else {
       let i: number = 0;
       checkArray.controls.forEach((item: FormControl) => {
         if (item.value == e.target.value) {
           checkArray.removeAt(i);
+          this.respondidas.splice(i, 1);
           return;
         }
         i++;

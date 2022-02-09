@@ -9,15 +9,29 @@ import { Router } from '@angular/router';
 })
 export class EncaminhamentoMedicoComponent implements OnInit {
 
-  paciente;
+  paciente = [];
+  total;
+  respondidas;
+  respostaAnamnese;
+  emergencia;
   constructor(private httpCliente: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.paciente = JSON.parse(localStorage.getItem('paciente') || '{}');
-    let total = this.router.getCurrentNavigation().extras.state.soma;
-    this.httpCliente.get('http://localhost:8080/api/anamnese/perguntas/verificar/' + total).subscribe(x => {
-
+    this.total = this.router.getCurrentNavigation().extras.state.soma;
+    this.respondidas = this.router.getCurrentNavigation().extras.state.anamnese_respondidas;
+    this.httpCliente.get<any>('http://localhost:8080/api/anamnese/perguntas/verificar/' + this.total).subscribe(x => {
+      this.emergencia = x.texto + ' - nivel ' + x.emergencia;
     });
   }
-
+  fazerCheckin() {
+    let dados = [];
+    dados.push(this.paciente);
+    dados[0].emergencia = this.emergencia;
+    dados[0].respondidas = this.respondidas.join();
+    dados[0].data_checkin = new Date().toLocaleString();
+    this.httpCliente.post<any>('http://localhost:8080/fila/adicionar', dados[0]).subscribe(x => {
+      this.router.navigateByUrl('/mapa-encaminhamento');
+    });
+  }
 }
