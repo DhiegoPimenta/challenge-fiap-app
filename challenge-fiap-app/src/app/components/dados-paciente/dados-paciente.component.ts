@@ -14,14 +14,15 @@ import { ModalDadosRegistradosComponent } from './modal-dados-registrados/modal-
 export class DadosPacienteComponent implements OnInit {
 
   form!: FormGroup;
+  altera = false;
   Data$ = [{
-    pergunta: "Necessito de atendimento especial para pessoa com mobilidade reduzida"
+    pergunta: "Pessoa com mobilidade reduzida"
   },
   {
-    pergunta: "Necessito de atendimento especial para pessoa com deficiência auditiva"
+    pergunta: "Deficiência auditiva"
   },
   {
-    pergunta: "Necessito de atendimento especial para pessoa com deficiência visual"
+    pergunta: "Deficiência visual"
   }];
 
   constructor(private fb: FormBuilder, private httpCliente: HttpClient, public dialog: MatDialog) { }
@@ -154,6 +155,10 @@ export class DadosPacienteComponent implements OnInit {
     this.form.controls['ultimo_nome'].updateValueAndValidity();
     this.form.controls['data_nascimento'].updateValueAndValidity();
     this.form.controls['nome_mae'].updateValueAndValidity();
+  }
+
+  mudarDados() {
+    this.altera = !this.altera;
   }
 
 }
