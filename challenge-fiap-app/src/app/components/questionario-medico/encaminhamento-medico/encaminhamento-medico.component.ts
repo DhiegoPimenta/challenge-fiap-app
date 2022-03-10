@@ -20,7 +20,7 @@ export class EncaminhamentoMedicoComponent implements OnInit {
     this.paciente = JSON.parse(localStorage.getItem('paciente') || '{}');
     this.total = this.router.getCurrentNavigation().extras.state.soma;
     this.respondidas = this.router.getCurrentNavigation().extras.state.anamnese_respondidas;
-    this.httpCliente.get<any>('http://localhost:8080/api/anamnese/perguntas/verificar/' + this.total).subscribe(x => {
+    this.httpCliente.get<any>('https://challenge-fiap.herokuapp.com/api/anamnese/perguntas/verificar/' + this.total).subscribe(x => {
       this.emergencia = x.texto + ' - nivel ' + x.emergencia;
     });
   }
@@ -30,7 +30,7 @@ export class EncaminhamentoMedicoComponent implements OnInit {
     dados[0].emergencia = this.emergencia;
     dados[0].respondidas = this.respondidas.join();
     dados[0].data_checkin = new Date().toLocaleString();
-    this.httpCliente.post<any>('http://localhost:8080/fila/adicionar', dados[0]).subscribe(x => {
+    this.httpCliente.post<any>('https://challenge-fiap.herokuapp.com/fila/adicionar', dados[0]).subscribe(x => {
       this.router.navigateByUrl('/mapa-encaminhamento');
     });
   }

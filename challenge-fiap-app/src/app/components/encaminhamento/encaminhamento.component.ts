@@ -18,7 +18,7 @@ export class EncaminhamentoComponent implements OnInit {
 
   ngOnInit() {
     this.total = this.router.getCurrentNavigation().extras.state.soma;
-    this.httpCliente.get('http://localhost:8080/api/emergencia/verificar/emergencia/' + this.total).subscribe(emergencia => {
+    this.httpCliente.get('https://challenge-fiap.herokuapp.com/api/emergencia/verificar/emergencia/' + this.total).subscribe(emergencia => {
       this.emergencia = emergencia;
     });
   }

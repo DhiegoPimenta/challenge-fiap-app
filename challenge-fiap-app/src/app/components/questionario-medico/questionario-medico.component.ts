@@ -35,7 +35,7 @@ export class QuestionarioMedicoComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.httpCliente.get('http://localhost:8080/api/anamnese/perguntas/todos').subscribe(x => {
+    this.httpCliente.get('https://challenge-fiap.herokuapp.com/api/anamnese/perguntas/todos').subscribe(x => {
       this.perguntas = x;
       this.perguntas.push({});
     });

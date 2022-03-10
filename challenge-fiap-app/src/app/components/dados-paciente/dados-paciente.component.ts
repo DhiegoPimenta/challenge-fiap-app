@@ -104,7 +104,7 @@ export class DadosPacienteComponent implements OnInit {
     localStorage.clear();
 
     if (valores.cpf) {
-      this.httpCliente.get('http://localhost:8080/api/paciente/cpf/' + valores.cpf).subscribe(val => {
+      this.httpCliente.get('https://challenge-fiap.herokuapp.com/api/paciente/cpf/' + valores.cpf).subscribe(val => {
         data = val;
         data.existePaciente = true;
         data.check = check;
@@ -124,7 +124,7 @@ export class DadosPacienteComponent implements OnInit {
         });
       });
     } else {
-      this.httpCliente.post('http://localhost:8080/api/paciente/buscarPorOutrosDados', valores).subscribe(val => {
+      this.httpCliente.post('https://challenge-fiap.herokuapp.com/api/paciente/buscarPorOutrosDados', valores).subscribe(val => {
         data = val;
         data.existePaciente = true;
         data.check = check;
