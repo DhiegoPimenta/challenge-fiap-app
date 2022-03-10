@@ -26,6 +26,8 @@ import { AgmCoreModule } from '@agm/core';
 import { AgmDirectionModule } from 'agm-direction';
 import { EncaminhamentoMedicoComponent } from './components/questionario-medico/encaminhamento-medico/encaminhamento-medico.component';
 import { MapaEncaminhamentoComponent } from './components/mapa-encaminhamento/mapa-encaminhamento.component';
+import { AgendarConsultaComponent } from './components/agendar-consulta/agendar-consulta.component';
+import { LocalizarComponent } from './components/localizar/localizar.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -39,7 +41,9 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     ModalDadosRegistradosComponent,
     QuestionarioMedicoComponent,
     EncaminhamentoMedicoComponent,
-    MapaEncaminhamentoComponent
+    MapaEncaminhamentoComponent,
+    AgendarConsultaComponent,
+    LocalizarComponent
   ],
   entryComponents: [],
   imports: [

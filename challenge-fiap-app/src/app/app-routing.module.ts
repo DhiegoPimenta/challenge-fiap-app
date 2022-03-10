@@ -7,6 +7,8 @@ import { DadosPacienteComponent } from './components/dados-paciente/dados-pacien
 import { QuestionarioMedicoComponent } from './components/questionario-medico/questionario-medico.component';
 import { EncaminhamentoMedicoComponent } from './components/questionario-medico/encaminhamento-medico/encaminhamento-medico.component';
 import { MapaEncaminhamentoComponent } from './components/mapa-encaminhamento/mapa-encaminhamento.component';
+import { AgendarConsultaComponent } from './components/agendar-consulta/agendar-consulta.component';
+import { LocalizarComponent } from './components/localizar/localizar.component';
 
 const routes: Routes = [
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
   {
     path: 'mapa-encaminhamento',
     component: MapaEncaminhamentoComponent
+  },
+  {
+    path: 'agendar-consulta',
+    component: AgendarConsultaComponent
+  },
+  {
+    path: 'localizar',
+    component: LocalizarComponent
   },
   {
     path: '',

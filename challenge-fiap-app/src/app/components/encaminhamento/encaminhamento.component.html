@@ -32,21 +32,30 @@
         do Hospital Moinhos de Vento.
       </div>
       <div class="espaco_texto">
-        Antes de chegar, sugerimos que efetue o check-in digital e preencha o questinário médico na sequência.
+        <span style="color:#286DBE;font-weight: 700;">Quer agilizar o seu atendimento ao chegar no Hospital?</span> Sugerimos que efetue o check-in digital e preencha o questionário médico na sequencia.
       </div>
       <div class="espaco_texto">
         São apenas 2 minutos
       </div>
       <div class="espaco_texto">
-        Com as informações aqui fornecidas, o seu atendimento será mais ágil e confortável.
-      </div>
-      <div class="espaco_texto">
-        Ao final do check-in indicaremos se o deslocamento é imediato ou se pode ser realizado dentro de algumas horas.
+        Ao final do check-in indicaremos se o deslocamento é imediato ou se pode ser realizado dentro de algumas horas, de modo a reduzir seu tempo de espera no HMV.
       </div>
     </ng-template>
   </div>
+  <div *ngIf="emergencia?.emergencia != 0;else emergzero" class="cont_button">
+    <button [routerLink]="'/agendar-consulta'" class="btn container btn_confirmar espaco_texto">
+      Agendar Consulta
+    </button>
+  </div>
+  <ng-template #emergzero>
+    <div class="cont_button">
+      <button [routerLink]="'/dados-paciente'" class="btn container btn_confirmar espaco_texto">
+        Realizar o check-in digital
+      </button>
+    </div>
+  </ng-template>
   <div class="cont_button">
-    <button [routerLink]="'/'" class="btn container btn_confirmar espaco_texto">
+    <button [routerLink]="'/'" class="btn container btn_voltar espaco_texto">
       Voltar ao Menu Principal
     </button>
   </div>
