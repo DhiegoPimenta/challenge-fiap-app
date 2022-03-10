@@ -47,7 +47,7 @@ export class EmergenciaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.Data$ = this.httpCliente.get('https://challenge-fiap.herokuapp.com/api/emergencia/perguntas');
+    this.Data$ = this.httpCliente.get('http://localhost:8080/api/emergencia/perguntas');
   }
 
 }
