@@ -12,10 +12,6 @@ import { LocalizarComponent } from './components/localizar/localizar.component';
 
 const routes: Routes = [
   {
-    path: 'tabs',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  },
-  {
     path: 'emergencia',
     component: EmergenciaComponent
   },
