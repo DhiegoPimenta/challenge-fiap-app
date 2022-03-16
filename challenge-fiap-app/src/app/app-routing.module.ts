@@ -10,6 +10,7 @@ import { MapaEncaminhamentoComponent } from './components/mapa-encaminhamento/ma
 import { AgendarConsultaComponent } from './components/agendar-consulta/agendar-consulta.component';
 import { LocalizarComponent } from './components/localizar/localizar.component';
 import { LoginComponent } from './components/login/login.component';
+import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
 
 const routes: Routes = [
   {
@@ -47,6 +48,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'cadastrar',
+    component: CadastrarComponent
   },
   {
     path: '',

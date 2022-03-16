@@ -9,7 +9,7 @@
             <span style="font-size: 11px;margin-left: 5px;margin-right:5px;"> - Paciente</span>
           </div>
         </ng-template>
-        <div *ngIf="!paciente;else sair2">
+        <div *ngIf="!paciente;else sair2" [routerLink]="['/cadastrar']">
           Cadastre-se
         </div>
         <ng-template #sair2 (click)="sairsistema()">

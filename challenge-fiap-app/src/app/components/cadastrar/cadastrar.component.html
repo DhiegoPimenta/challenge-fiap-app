@@ -1,3 +1,43 @@
-<p>
-  cadastrar works!
-</p>
+<ion-content [fullscreen]="true">
+  <img src="../../assets/logo.png">
+  <div style="text-align: end;background: #286DBE; padding:15px;color:white; margin: 10px 0px 24px 0px;">
+    <div class="row">
+      <div class="col-10" style="margin: 0rem 1.7rem;">
+        <div [routerLink]="['/']">Voltar</div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <form [formGroup]="form">
+      <div class="info" style="margin: 2rem 0rem 2rem 0rem;">
+        <input type="text" class="form-control" formControlName="username" name="username" placeholder="E-mail" />
+      </div>
+      <div class="info">
+        <input type="password" class="form-control" formControlName="password" name="password" placeholder="Senha" />
+      </div>
+      <div class="info" style="margin: 2rem 0rem 1rem 0rem;">
+        <select class="form-control" (change)="modo($event.target.value)">
+          <option value="1">Médico</option>
+          <option value="2">Socorrista</option>
+          <option value="3" (change)="alterou($event)">Paciente</option>
+          <option value="4">Cuidador</option>
+        </select>
+      </div>
+      <div *ngIf="isPaciente">
+        <div class="info" style="margin: 2rem 0rem 2rem 0rem;">
+          <input type="text" class="form-control" formControlName="nome" name="nome" placeholder="Nome" />
+        </div>
+        <div class="info" style="margin: 2rem 0rem 2rem 0rem;">
+          <input type="text" class="form-control" formControlName="sobrenome" name="sobrenome" placeholder="Sobrenome" />
+        </div>
+        <div class="info" style="margin: 2rem 0rem 1rem 0rem;">
+          <input type="text" class="form-control" formControlName="cpf" name="cpf" placeholder="CPF (xxx.xxx.xxx-xx)" [dropSpecialCharacters]="false"
+          mask="000.000.000-00"  />
+        </div>
+      </div>
+      <div class="btneditar" style="margin: 1rem 0rem 2rem 0rem;">
+        <button [disabled]="form.invalid" (click)="cadastrar()" class="btn btn_confirmar">Cadastrar</button>
+      </div>
+    </form>
+  </div>
+</ion-content>

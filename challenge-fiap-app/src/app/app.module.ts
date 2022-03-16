@@ -30,6 +30,7 @@ import { AgendarConsultaComponent } from './components/agendar-consulta/agendar-
 import { LocalizarComponent } from './components/localizar/localizar.component';
 import { LoginComponent } from './components/login/login.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CadastrarComponent } from './components/cadastrar/cadastrar.component';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -46,7 +47,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     MapaEncaminhamentoComponent,
     AgendarConsultaComponent,
     LocalizarComponent,
-    LoginComponent
+    LoginComponent,
+    CadastrarComponent
   ],
   entryComponents: [],
   imports: [
