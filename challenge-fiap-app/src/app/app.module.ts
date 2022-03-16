@@ -28,6 +28,8 @@ import { EncaminhamentoMedicoComponent } from './components/questionario-medico/
 import { MapaEncaminhamentoComponent } from './components/mapa-encaminhamento/mapa-encaminhamento.component';
 import { AgendarConsultaComponent } from './components/agendar-consulta/agendar-consulta.component';
 import { LocalizarComponent } from './components/localizar/localizar.component';
+import { LoginComponent } from './components/login/login.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
 
@@ -43,7 +45,8 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     EncaminhamentoMedicoComponent,
     MapaEncaminhamentoComponent,
     AgendarConsultaComponent,
-    LocalizarComponent
+    LocalizarComponent,
+    LoginComponent
   ],
   entryComponents: [],
   imports: [
@@ -59,6 +62,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = null;
     BrowserAnimationsModule,
     NgxPaginationModule,
     MatSliderModule,
+    MatSnackBarModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyA0j0dHYoULF4rfmzLbZQmREiXUkLc3Tts',
     }),

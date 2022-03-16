@@ -1,8 +1,28 @@
-<ion-header>
-  <img src="../../assets/logo.png">
-</ion-header>
-
 <ion-content [fullscreen]="true">
+  <img src="../../assets/logo.png">
+  <div style="text-align: end;background: #286DBE; padding:15px;color:white; margin: 10px 0px 24px 0px;">
+    <div class="row">
+      <div class="col-10" style="margin: 0rem 1.7rem;">
+        <div *ngIf="!paciente;else sair" [routerLink]="['/login']">Acesse sua conta</div>
+        <ng-template #sair>
+          <div>{{paciente.nome}} {{paciente.sobrenome}}
+            <span style="font-size: 11px;margin-left: 5px;margin-right:5px;"> - Paciente</span>
+          </div>
+        </ng-template>
+        <div *ngIf="!paciente;else sair2">
+          Cadastre-se
+        </div>
+        <ng-template #sair2 (click)="sairsistema()">
+          <div (click)="sairsistema()">
+            Sair
+          </div>
+        </ng-template>
+      </div>
+      <div class="col-2" style="margin: 0.3rem -2.99rem;">
+        <img class="tamanho__icone" src="../../../assets/Group.png">
+      </div>
+    </div>
+  </div>
   <ion-card class="card_style">
     <ion-card-content>
       <div class="row">
@@ -30,6 +50,20 @@
           <img class="tamanho__icone" src="../../../assets/calendario.png">
           <div class="texto__card">
             Marcar consulta
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="paciente">
+        <div class="col espaco_col" [routerLink]="'/localizar'">
+          <img class="tamanho__icone" src="../../../assets/a1.PNG">
+          <div class="texto__card">
+            Histórico médico
+          </div>
+        </div>
+        <div class="col espaco_col" [routerLink]="'/agendar-consulta'">
+          <img class="tamanho__icone" src="../../../assets/a2.PNG">
+          <div class="texto__card">
+            Compromissos agendados
           </div>
         </div>
       </div>

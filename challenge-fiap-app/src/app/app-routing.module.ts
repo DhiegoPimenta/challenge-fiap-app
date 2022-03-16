@@ -9,6 +9,7 @@ import { EncaminhamentoMedicoComponent } from './components/questionario-medico/
 import { MapaEncaminhamentoComponent } from './components/mapa-encaminhamento/mapa-encaminhamento.component';
 import { AgendarConsultaComponent } from './components/agendar-consulta/agendar-consulta.component';
 import { LocalizarComponent } from './components/localizar/localizar.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,10 @@ const routes: Routes = [
   {
     path: 'localizar',
     component: LocalizarComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',

@@ -21,7 +21,7 @@ export class IonLoaderService {
             }).catch((err) => {
                 console.log(err);
             });
-        }, 3000);
+        }, 0);
     }
 
     autoLoader() {

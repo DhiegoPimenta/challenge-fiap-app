@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <img src="../../assets/logo.png">
+  <div style="text-align: end;background: #286DBE; padding:15px;color:white; margin: 10px 0px 24px 0px;">
+    <div class="row">
+      <div class="col-10" style="margin: 0rem 1.7rem;">
+        <div [routerLink]="['/']">Voltar</div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <form [formGroup]="form">
+      <div class="info" style="margin: 2rem 0rem 2rem 0rem;">
+        <input type="text" class="form-control" formControlName="username" name="username" placeholder="E-mail" />
+      </div>
+      <div class="info">
+        <input type="password" class="form-control" formControlName="password" name="password" placeholder="Senha" />
+      </div>
+      <div class="info"  style="margin: 2rem 0rem 1rem 0rem;">
+        <select class="form-control">
+          <option>Paciente</option>
+          <option>Socorrista</option>
+          <option>Médico</option>
+          <option>Cuidador</option>
+        </select>
+      </div>
+      <div class="btneditar" style="margin: 1rem 0rem 2rem 0rem;">
+        <button [disabled]="form.invalid" (click)="logar()" class="btn btn_confirmar">Confirmar</button>
+      </div>
+    </form>
+  </div>
+</ion-content>
